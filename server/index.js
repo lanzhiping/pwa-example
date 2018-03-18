@@ -1,7 +1,7 @@
-import express from 'express'
+// import express from 'express'
 
-express()
-    .use('/', express.static('./dist'))
-    .listen(3000, () => {
-        console.log('app starts at 3000')
-    })
+// express()
+//     .use('/', express.static('./dist'))
+//     .listen(3000, () => {
+//         console.log('app starts at 3000')
+//     })
