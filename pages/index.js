@@ -22,16 +22,10 @@ const muiTheme = getMuiTheme(
     }
 );
 const store = createStore(combineReducers(reducers))
-const containerStyle = {
-    border: '1px red solid',
-    width: '100%',
-    padding: 0,
-    margin: 0
-};
 
 export default () => (
     <MuiThemeProvider muiTheme={muiTheme}>
-        <div style={containerStyle}>
+        <div>
             <Head>
                 <link rel="manifest" href="/manifest.json" />
                 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
