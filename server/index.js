@@ -2,6 +2,7 @@
 const express = require('express')
 const next = require('next')
 const ipv4 = require('./ip')
+const imageApi = require('./image')
 
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
@@ -13,6 +14,7 @@ app.prepare().then(() => {
         .use('/launcher-icon-1x.png', express.static('launcher-icon-1x.png'))
         .use('/launcher-icon-2x.png', express.static('launcher-icon-2x.png'))
         .use('/launcher-icon-4x.png', express.static('launcher-icon-4x.png'))
+        .get('/image', imageApi)
         .use('/', handle)
         .listen(3000, () => {
             if (ipv4) {
