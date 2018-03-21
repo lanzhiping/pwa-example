@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
 import Nav from './Nav';
-import Content from './Content';
 
 const containerStyle = {
     border: '1px red solid',
@@ -28,14 +27,14 @@ class App extends Component {
             <div style={containerStyle}>
                 <Drawer
                     docked={false}
-                    width={100}
+                    width={300}
                     open={this.props.isNavOpen}
                     onRequestChange={this.props.toggleNav}
                 >
                     <Nav />
                 </Drawer>
                 <AppBar title="PWA" onLeftIconButtonClick={this.props.toggleNav} />
-                <Content />
+                {this.props.children}
             </div>
         );
     }

@@ -15,22 +15,40 @@ class Content extends Component {
     render() {
         const content = [
             {
-                id: '1', name: 'ZP', time: new Date('2018-03-19 21:00'),
-                title: 'What a day!', subtitle: 'This is a ready good good good good day'
-            }
+                id: '1', name: 'Zhiping', time: new Date('2018-03-19 21:00'),
+                title: 'What a day!', subtitle: 'This is a ready good good good good day',
+                picUrl: 'https://tse4.mm.bing.net/th?id=OIP.A6zdfyorlBrvGAWFKeJ_bQHaEe&pid=Api',
+            },
+            {
+                id: '2', name: 'Zhiping', time: new Date('2018-03-19 21:00'),
+                title: 'What a day!', subtitle: 'This is a ready good good good good day',
+                picUrl: 'https://tse4.mm.bing.net/th?id=OIP.A6zdfyorlBrvGAWFKeJ_bQHaEe&pid=Api',
+            },
+            {
+                id: '3', name: 'Zhiping', time: new Date('2018-03-19 21:00'),
+                title: 'What a day!', subtitle: 'This is a ready good good good good day',
+                picUrl: 'https://tse4.mm.bing.net/th?id=OIP.A6zdfyorlBrvGAWFKeJ_bQHaEe&pid=Api',
+            },
+            {
+                id: '4', name: 'Zhiping', time: new Date('2018-03-19 21:00'),
+                title: 'What a day!', subtitle: 'This is a ready good good good good day',
+                picUrl: 'https://tse4.mm.bing.net/th?id=OIP.A6zdfyorlBrvGAWFKeJ_bQHaEe&pid=Api',
+            },
         ];
 
+        const cardStyle = {
+            margin: 15,
+        }
+
         return content.map(data => (
-            <Card key={data.id}>
+            <Card key={data.id} style={cardStyle}>
                 <CardHeader
                     title={data.name}
-                    subtitle={timeSince(data.time)}
-                    avatar={<Avatar size={32} color={white100} backgroundColor={blue500}>{data.name}</Avatar>}
-                    actAsExpander={true}
-                    showExpandableButton={true}
+                    subtitle={`${timeSince(data.time)} ago`}
+                    avatar={<Avatar size={32} color={white100} backgroundColor={blue500}>{data.name[0]}</Avatar>}
                 />
                 <CardMedia overlay={<CardTitle title={data.title} subtitle={data.subtitle} />}>
-                    <img src="" alt="" style={{ height: 100 }} />
+                    <img src={data.picUrl} />
                 </CardMedia>
             </Card>
         ))

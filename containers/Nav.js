@@ -3,8 +3,8 @@ import Link from 'next/link'
 import Paper from 'material-ui/Paper'
 import Divider from 'material-ui/Divider'
 import { Menu, MenuItem } from 'material-ui/Menu'
-import FontIcon from 'material-ui/FontIcon';
-import { blue500 } from 'material-ui/styles/colors';
+import FontIcon from 'material-ui/FontIcon'
+import { blue500 } from 'material-ui/styles/colors'
 
 function buildIcon(iconName) {
     const iconStyles = { marginRight: 24 };
@@ -19,6 +19,13 @@ class Nav extends Component {
     render() {
         const homeIcon = buildIcon('home')
         const postIcon = buildIcon('rss_feed')
+        const imageStyle = {
+            height: '100%',
+            width: '100%',
+            objectFit: 'cover',
+            objectPosition: '0 0',
+        }
+        const navImage = <img src={'../pwa-lighthouse.png'} style={imageStyle} />
         const paperStyle = {
             height: 200,
             width: '100%',
@@ -29,9 +36,9 @@ class Nav extends Component {
 
         return (
             <div>
-                <Paper style={paperStyle} zDepth={0} />
+                <Paper style={paperStyle} zDepth={0} children={navImage} />
                 <Divider />
-                <Menu>
+                <Menu width={300} autoWidth={false}>
                     <Link href="/">
                         <MenuItem leftIcon={homeIcon}>Topics</MenuItem>
                     </Link>

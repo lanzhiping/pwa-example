@@ -2,11 +2,10 @@ import Document, { Head, Main, NextScript } from 'next/document'
 import flush from 'styled-jsx/server'
 
 const resetStyle = {
-    border: '1px red solid',
     width: '100%',
     padding: 0,
     margin: 0
-}
+};
 
 export default class MyDocument extends Document {
     static getInitialProps({ renderPage }) {
@@ -20,7 +19,11 @@ export default class MyDocument extends Document {
         return (
             <html>
                 <Head>
-                    <style>{`body { margin: 0 } /* custom! */`}</style>
+                    <style>{` html, body { width: 100%; overflow-x: hidden; }/* custom! */`}</style>
+                    <link rel="manifest" href="/manifest.json" />
+                    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
+                    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+                    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, user-scalable=no" key="viewport" />
                 </Head>
                 <body style={resetStyle}>
                     {this.props.customValue}
