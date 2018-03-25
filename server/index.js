@@ -1,8 +1,10 @@
-
 const express = require('express')
+const bodyParser = require('body-parser')
 const next = require('next')
 const ipv4 = require('./ip')
 const imageApi = require('./image')
+const addPost = require('./addPost')
+const getPosts = require('./getPosts')
 
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
@@ -16,6 +18,8 @@ app.prepare().then(() => {
         .use('/launcher-icon-4x.png', express.static('launcher-icon-4x.png'))
         .use('/pwa-lighthouse.png', express.static('pwa-lighthouse.png'))
         .get('/image', imageApi)
+        .post('/post', bodyParser.json(), addPost)
+        .get('/posts', getPosts)
         .use('/', handle)
         .listen(3000, () => {
             if (ipv4) {

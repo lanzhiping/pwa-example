@@ -4,6 +4,8 @@ import FontIcon from 'material-ui/FontIcon'
 import Paper from 'material-ui/Paper'
 import TextField from 'material-ui/TextField'
 import FloatingActionButton from 'material-ui/FloatingActionButton'
+import IconButton from 'material-ui/IconButton'
+import fetch from 'isomorphic-unfetch'
 
 const style = {
     margin: 20,
@@ -12,24 +14,75 @@ const style = {
     padding: 10,
 };
 
+const picPreviewStyle = {
+    width: 'calc(100% - 50px)',
+    height: 300,
+}
+
+const imgPreviewStyle = {
+    objectFit: 'cover',
+    height: '100%',
+    width: '100%',
+}
+
 class Post extends Component {
+    state = {
+        name: '',
+        title: '',
+        subtitle: '',
+        picUrl: '',
+    }
+
+    async componentDidMount() {
+        const res = await fetch('/image')
+        const image = await res.text()
+        this.setState({ picUrl: image })
+    }
+
+    addPost = async () => {
+        const post = Object.assign({ time: new Date().toJSON() }, this.state)
+        const res = await fetch('/post', { method: 'POST', body: JSON.stringify(post) })
+        const result = await res.json()
+        console.log('------', result)
+    }
+
+    onRefresh = async () => {
+        const res = await fetch('http://localhost:3000/image')
+        const image = await res.text()
+        this.setState({ picUrl: image })
+    }
+
     render() {
         const inputField = (
             <div>
                 <Subheader>Post Your Status</Subheader>
                 <TextField
                     fullWidth={true}
+                    value={this.state.name}
+                    onChange={event => this.setState({ name: event.target.value })}
                     floatingLabelText="Input Your Name"
                 /><br />
                 <TextField
                     fullWidth={true}
+                    value={this.state.title}
+                    onChange={event => this.setState({ title: event.target.value })}
+                    floatingLabelText="Input Post Title"
+                /><br />
+                <TextField
+                    fullWidth={true}
+                    value={this.state.subtitle}
+                    onChange={event => this.setState({ subtitle: event.target.value })}
                     floatingLabelText="Say Something Here"
                     multiLine={true}
                     rows={2}
                 /><br />
+                <div style={{ textAlign: 'center' }}>
+                    <Paper style={picPreviewStyle} zDepth={1} rounded={false} children={<img src={this.state.picUrl} style={imgPreviewStyle}/>} />
+                    <IconButton iconClassName="material-icons" tooltip="Try others" onClick={this.onRefresh}>refresh</IconButton>
+                </div>
                 <br />
                 <div style={{ textAlign: 'right' }}>
-                    <FloatingActionButton mini={true}>
+                    <FloatingActionButton mini={true} onClick={this.addPost}>
                         <FontIcon className="material-icons">send</FontIcon>
                     </FloatingActionButton>
                 </div>
