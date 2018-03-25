@@ -7,8 +7,6 @@ import FloatingActionButton from 'material-ui/FloatingActionButton'
 
 const style = {
     margin: 20,
-    marginLeft: 'auto',
-    marginRight: 'auto',
     width: 'auto',
     maxWidth: 500,
     padding: 10,

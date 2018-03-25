@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import Link from 'next/link'
 import Paper from 'material-ui/Paper'
 import Divider from 'material-ui/Divider'
@@ -40,10 +41,10 @@ class Nav extends Component {
                 <Divider />
                 <Menu width={300} autoWidth={false}>
                     <Link href="/">
-                        <MenuItem leftIcon={homeIcon}>Topics</MenuItem>
+                        <a><MenuItem leftIcon={homeIcon} onClick={this.props.toggleNav}>Topics</MenuItem></a>
                     </Link>
                     <Link href="/post">
-                        <MenuItem leftIcon={postIcon}>Post A Message</MenuItem>
+                        <a><MenuItem leftIcon={postIcon} onClick={this.props.toggleNav}>Post A Message</MenuItem></a>
                     </Link>
                 </Menu>
             </div>
@@ -51,4 +52,9 @@ class Nav extends Component {
     }
 };
 
-export default Nav;
+export default connect(
+    () => ({}),
+    dispatch => ({
+        toggleNav: () => dispatch({ type: 'TOGGLE_NAV' })
+    })
+)(Nav);
