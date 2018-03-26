@@ -17,6 +17,7 @@ app.prepare().then(() => {
         .use('/launcher-icon-2x.png', express.static('launcher-icon-2x.png'))
         .use('/launcher-icon-4x.png', express.static('launcher-icon-4x.png'))
         .use('/pwa-lighthouse.png', express.static('pwa-lighthouse.png'))
+        .use('/service-worker.js', express.static('service-worker.js'))
         .get('/image', imageApi)
         .post('/post', bodyParser.json(), addPost)
         .get('/posts', getPosts)

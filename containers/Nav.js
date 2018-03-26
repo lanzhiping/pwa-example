@@ -36,7 +36,7 @@ class Nav extends Component {
         }
 
         return (
-            <div>
+            <div style={{ textAlign: 'left' }}>
                 <Paper style={paperStyle} zDepth={0} children={navImage} />
                 <Divider />
                 <Menu width={300} autoWidth={false}>

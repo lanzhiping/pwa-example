@@ -35,6 +35,15 @@ export default class MyDocument extends Document {
                 <Head>
                     <style>{resetStyle}</style>
                     <link rel="manifest" href="/manifest.json" />
+                    {/* Add to home screen for Safari on iOS */}
+                    <meta name="apple-mobile-web-app-capable" content="yes" />
+                    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+                    <meta name="apple-mobile-web-app-title" content="PWA" />
+                    <link rel="apple-touch-icon" href="/launcher-icon-4x.png" />
+                    {/* Add Tile Icon for Windows */}
+                    <meta name="msapplication-TileImage" content="/launcher-icon-4x.png" />
+                    <meta name="msapplication-TileColor" content="#2F3BA2" />
+
                     <link rel="stylesheet" href="/_next/static/style.css" />
                     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
                     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />

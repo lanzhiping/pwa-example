@@ -45,13 +45,11 @@ class Content extends Component {
             const buttonStyle = {
                 display: 'inline-block',
                 marginTop: '30px',
-                marginLeft: '50%',
-                transform: 'translateX(-50%)'
             }
 
             return (
                 <Link href="/post">
-                    <RaisedButton label="Go Send A Post" primary={true} style={buttonStyle}/>
+                    <a><RaisedButton label="Go Send A Post" primary={true} style={buttonStyle}/></a>
                 </Link>
             )
         }
@@ -65,7 +63,7 @@ class Content extends Component {
         const cardClassName = 'col-xs-12 col-sm-5 col-md-3 col-lg-2'
 
         return this.state.posts.map(data => (
-            <Card key={data.id} style={cardStyle} className={cardClassName}>
+            <Card key={data.time} style={cardStyle} className={cardClassName}>
                 <CardHeader
                     title={data.name}
                     subtitle={`${timeSince(data.time)} ago`}

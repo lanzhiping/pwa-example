@@ -20,8 +20,9 @@ const muiTheme = getMuiTheme(
     {
         avatar: {
             borderColor: null
-        }
-    }
+        },
+        userAgent: 'all'
+    },
 );
 
 export default (props) => (

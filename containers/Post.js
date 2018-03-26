@@ -10,9 +10,11 @@ import fetch from 'isomorphic-unfetch'
 
 const style = {
     margin: 20,
-    width: 'auto',
     maxWidth: 500,
     padding: 10,
+    textAlign: 'left',
+    display: 'inline-block',
+    width: '80%'
 };
 
 const picPreviewStyle = {

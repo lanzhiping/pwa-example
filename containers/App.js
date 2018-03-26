@@ -19,6 +19,12 @@ class App extends Component {
     }
 
     componentDidMount() {
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker
+                .register('/service-worker.js')
+                .then(function() { console.log('Service Worker Registered'); });
+        }
+
         this.setState({
             loading: false
         });
@@ -51,7 +57,7 @@ class App extends Component {
                     <Nav />
                 </Drawer>
                 <AppBar title={titleLink} iconElementLeft={navIcon} />
-                {this.props.children}
+                <div style={{ textAlign: 'center' }}>{this.props.children}</div>
             </div>
         );
     }
