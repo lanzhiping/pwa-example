@@ -6,6 +6,8 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { blue100, blue500, blue700 } from 'material-ui/styles/colors';
 
+import 'flexboxgrid/css/flexboxgrid.min.css'
+
 const store = createStore(combineReducers(reducers))
 const muiTheme = getMuiTheme(
     {

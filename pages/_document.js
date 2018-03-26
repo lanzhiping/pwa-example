@@ -35,6 +35,7 @@ export default class MyDocument extends Document {
                 <Head>
                     <style>{resetStyle}</style>
                     <link rel="manifest" href="/manifest.json" />
+                    <link rel="stylesheet" href="/_next/static/style.css" />
                     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
                     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
                     <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, user-scalable=no" key="viewport" />

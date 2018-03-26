@@ -58,10 +58,14 @@ class Content extends Component {
 
         const cardStyle = {
             margin: 15,
+            display: 'inline-block',
+            textAlign: 'left',
         }
 
+        const cardClassName = 'col-xs-12 col-sm-5 col-md-3 col-lg-2'
+
         return this.state.posts.map(data => (
-            <Card key={data.id} style={cardStyle}>
+            <Card key={data.id} style={cardStyle} className={cardClassName}>
                 <CardHeader
                     title={data.name}
                     subtitle={`${timeSince(data.time)} ago`}
