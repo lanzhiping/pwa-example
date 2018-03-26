@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Link from 'next/link'
+import fetch from 'isomorphic-unfetch'
 import { blue500, white100 } from 'material-ui/styles/colors'
 import Avatar from 'material-ui/Avatar'
 import {
@@ -9,38 +11,56 @@ import {
     CardTitle,
     CardText
 } from 'material-ui/Card';
+import CircularProgress from 'material-ui/CircularProgress'
+import RaisedButton from 'material-ui/RaisedButton'
 import { timeSince } from '../util'
 
 class Content extends Component {
+    state = {
+        loading: true,
+        posts: [],
+    }
+
+    async componentDidMount() {
+        this.setState({ loading: true })
+
+        const res = await fetch('/posts')
+        const posts = await res.json()
+
+        this.setState({ posts, loading: false })
+    }
+
     render() {
-        const content = [
-            {
-                id: '1', name: 'Zhiping', time: new Date('2018-03-19 21:00'),
-                title: 'What a day!', subtitle: 'This is a ready good good good good day',
-                picUrl: 'https://tse4.mm.bing.net/th?id=OIP.A6zdfyorlBrvGAWFKeJ_bQHaEe&pid=Api',
-            },
-            {
-                id: '2', name: 'Zhiping', time: new Date('2018-03-19 21:00'),
-                title: 'What a day!', subtitle: 'This is a ready good good good good day',
-                picUrl: 'https://tse4.mm.bing.net/th?id=OIP.A6zdfyorlBrvGAWFKeJ_bQHaEe&pid=Api',
-            },
-            {
-                id: '3', name: 'Zhiping', time: new Date('2018-03-19 21:00'),
-                title: 'What a day!', subtitle: 'This is a ready good good good good day',
-                picUrl: 'https://tse4.mm.bing.net/th?id=OIP.A6zdfyorlBrvGAWFKeJ_bQHaEe&pid=Api',
-            },
-            {
-                id: '4', name: 'Zhiping', time: new Date('2018-03-19 21:00'),
-                title: 'What a day!', subtitle: 'This is a ready good good good good day',
-                picUrl: 'https://tse4.mm.bing.net/th?id=OIP.A6zdfyorlBrvGAWFKeJ_bQHaEe&pid=Api',
-            },
-        ];
+        if (this.state.loading) {
+            const loaderStyle = {
+                display: 'block',
+                marginTop: '30px',
+                marginRight: 'auto',
+                marginLeft: 'auto',
+            }
+            return <CircularProgress size={60} thickness={7} style={loaderStyle}/>
+        }
+
+        if (this.state.posts.length === 0) {
+            const buttonStyle = {
+                display: 'inline-block',
+                marginTop: '30px',
+                marginLeft: '50%',
+                transform: 'translateX(-50%)'
+            }
+
+            return (
+                <Link href="/post">
+                    <RaisedButton label="Go Send A Post" primary={true} style={buttonStyle}/>
+                </Link>
+            )
+        }
 
         const cardStyle = {
             margin: 15,
         }
 
-        return content.map(data => (
+        return this.state.posts.map(data => (
             <Card key={data.id} style={cardStyle}>
                 <CardHeader
                     title={data.name}
