@@ -1,6 +1,6 @@
 const jsonfile = require('jsonfile')
 const path = require('path')
-const file = path.resolve(__dirname, 'posts.json')
+const file = path.resolve(__dirname, '../posts.json')
 
 let posts = null;
 
@@ -15,14 +15,11 @@ function loadPosts() {
         })
 }
 
-loadPosts()
-
 function addPost(req, res) {
     loadPosts().then(posts => {
         const newPost = req.body
 
-        posts.push(newPost)
-
+        posts.unshift(newPost)
         jsonfile.writeFile(file, { posts }, () => {
             res.send({ add: 1 })
         })

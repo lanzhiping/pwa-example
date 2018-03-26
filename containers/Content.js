@@ -17,7 +17,7 @@ import { timeSince } from '../util'
 
 class Content extends Component {
     state = {
-        loading: true,
+        loading: false,
         posts: [],
     }
 

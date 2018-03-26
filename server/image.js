@@ -2,6 +2,7 @@ const https = require('https');
 const subscriptionKey = '71002e7b63b643049871afd46e007b41';
 const host = 'api.cognitive.microsoft.com';
 const path = '/bing/v7.0/images/search';
+const defaultImage = 'https://tse4.mm.bing.net/th?id=OIP.A6zdfyorlBrvGAWFKeJ_bQHaEe&pid=Api';
 
 function randomIntFromInterval(min, max) {
     return Math.floor(Math.random() * ( max - min + 1) + min);
@@ -34,8 +35,13 @@ module.exports = (req, res, next) => {
                     res.send(imageUrl)
                 })
                 response.on('error', (error) => {
-                    res.send(error)
+                    console.log('response error', error)
+                    res.send(defaultImage)
                 })
+            })
+            .on('error', (error) => {
+                console.log('request error', error)
+                res.send(defaultImage)
             })
             .end()
     } else {

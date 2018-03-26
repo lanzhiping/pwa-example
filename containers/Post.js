@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Router from 'next/router'
 import Subheader from 'material-ui/Subheader'
 import FontIcon from 'material-ui/FontIcon'
 import Paper from 'material-ui/Paper'
@@ -15,8 +16,9 @@ const style = {
 };
 
 const picPreviewStyle = {
-    width: 'calc(100% - 50px)',
-    height: 300,
+    margin: 'auto',
+    width: 200,
+    height: 200,
 }
 
 const imgPreviewStyle = {
@@ -41,13 +43,14 @@ class Post extends Component {
 
     addPost = async () => {
         const post = Object.assign({ time: new Date().toJSON() }, this.state)
-        const res = await fetch('/post', { method: 'POST', body: JSON.stringify(post) })
+        const headers = { 'Content-Type': 'application/json' }
+        const res = await fetch('/post', { headers, method: 'POST', body: JSON.stringify(post) })
         const result = await res.json()
-        console.log('------', result)
+        Router.push({ pathname: '/' })
     }
 
     onRefresh = async () => {
-        const res = await fetch('http://localhost:3000/image')
+        const res = await fetch('/image')
         const image = await res.text()
         this.setState({ picUrl: image })
     }
@@ -75,12 +78,11 @@ class Post extends Component {
                     floatingLabelText="Say Something Here"
                     multiLine={true}
                     rows={2}
-                /><br />
+                /><br /><br />
                 <div style={{ textAlign: 'center' }}>
                     <Paper style={picPreviewStyle} zDepth={1} rounded={false} children={<img src={this.state.picUrl} style={imgPreviewStyle}/>} />
                     <IconButton iconClassName="material-icons" tooltip="Try others" onClick={this.onRefresh}>refresh</IconButton>
                 </div>
-                <br />
                 <div style={{ textAlign: 'right' }}>
                     <FloatingActionButton mini={true} onClick={this.addPost}>
                         <FontIcon className="material-icons">send</FontIcon>
