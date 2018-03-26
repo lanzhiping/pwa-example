@@ -37,7 +37,7 @@ export default class MyDocument extends Document {
                     <link rel="manifest" href="/manifest.json" />
                     {/* Add to home screen for Safari on iOS */}
                     <meta name="apple-mobile-web-app-capable" content="yes" />
-                    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+                    <meta name="apple-mobile-web-app-status-bar-style" content="white" />
                     <meta name="apple-mobile-web-app-title" content="PWA" />
                     <link rel="apple-touch-icon" href="/launcher-icon-4x.png" />
                     {/* Add Tile Icon for Windows */}

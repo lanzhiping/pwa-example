@@ -1,16 +1,16 @@
-const cacheName = 'PWA--'
-const dataCacheName = 'Data-PWA--'
+const cacheName = 'PWA-BUILD_ID'
+const dataCacheName = 'Data-PWA-BUILD_ID'
 const filesToCache = [
     '/',
     '/post',
     '/nav',
     '/_next/static/style.css',
 
-    '_next/-/page/app.js',
-    '_next/-/page/index.js',
-    '_next/-/page/nav.js',
-    '_next/-/page/post.js',
-    '_next/-/page/_error.js',
+    '_next/BUILD_ID/page/app.js',
+    '_next/BUILD_ID/page/index.js',
+    '_next/BUILD_ID/page/nav.js',
+    '_next/BUILD_ID/page/post.js',
+    '_next/BUILD_ID/page/_error.js',
 
     'https://fonts.googleapis.com/css?family=Roboto:300,400,500',
     'https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2',
