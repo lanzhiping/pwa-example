@@ -1,8 +1,2 @@
 #node modules
 node_modules
-
-#build version of SW
-service-worker.js
-
-#build
-.next

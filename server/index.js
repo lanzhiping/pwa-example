@@ -22,7 +22,7 @@ app.prepare().then(() => {
         .post('/post', bodyParser.json(), addPost)
         .get('/posts', getPosts)
         .use('/', handle)
-        .listen(3000, () => {
+        .listen(process.env.PORT || 3000, () => {
             if (ipv4) {
                 console.log(`app starts at ${ipv4.address}:3000`)
             } else {

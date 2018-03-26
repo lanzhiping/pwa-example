@@ -1,16 +1,16 @@
-const cacheName = 'PWA--'
-const dataCacheName = 'Data-PWA--'
+const cacheName = 'PWA-fc3c3975-b751-402e-bbbe-e51e1c7a4801'
+const dataCacheName = 'Data-PWA-fc3c3975-b751-402e-bbbe-e51e1c7a4801'
 const filesToCache = [
     '/',
     '/post',
     '/nav',
     '/_next/static/style.css',
 
-    '_next/-/page/app.js',
-    '_next/-/page/index.js',
-    '_next/-/page/nav.js',
-    '_next/-/page/post.js',
-    '_next/-/page/_error.js',
+    '_next/fc3c3975-b751-402e-bbbe-e51e1c7a4801/page/app.js',
+    '_next/fc3c3975-b751-402e-bbbe-e51e1c7a4801/page/index.js',
+    '_next/fc3c3975-b751-402e-bbbe-e51e1c7a4801/page/nav.js',
+    '_next/fc3c3975-b751-402e-bbbe-e51e1c7a4801/page/post.js',
+    '_next/fc3c3975-b751-402e-bbbe-e51e1c7a4801/page/_error.js',
 
     'https://fonts.googleapis.com/css?family=Roboto:300,400,500',
     'https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2',

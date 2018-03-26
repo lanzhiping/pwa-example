@@ -3,7 +3,7 @@
     "scripts": {
         "dev": "node updateSW.js && nodemon --watch server server/index.js",
         "build": "NODE_ENV=production next build && NODE_ENV=production node updateSW.js",
-        "prod": "NODE_ENV=production node server/index.js"
+        "start": "NODE_ENV=production node server/index.js"
     },
     "devDependencies": {
         "nodemon": "^1.17.2"
