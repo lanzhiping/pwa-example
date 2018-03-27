@@ -1,16 +1,16 @@
-const cacheName = 'PWA-86fd7453-9364-4321-8999-84e0e09aea1f'
-const dataCacheName = 'Data-PWA-86fd7453-9364-4321-8999-84e0e09aea1f'
+const cacheName = 'PWA-318de9dc-913c-403a-a59c-6989f0b60f0c'
+const dataCacheName = 'Data-PWA-318de9dc-913c-403a-a59c-6989f0b60f0c'
 const filesToCache = [
     '/',
     '/post',
     '/nav',
     '/_next/static/style.css',
 
-    '_next/86fd7453-9364-4321-8999-84e0e09aea1f/page/app.js',
-    '_next/86fd7453-9364-4321-8999-84e0e09aea1f/page/index.js',
-    '_next/86fd7453-9364-4321-8999-84e0e09aea1f/page/nav.js',
-    '_next/86fd7453-9364-4321-8999-84e0e09aea1f/page/post.js',
-    '_next/86fd7453-9364-4321-8999-84e0e09aea1f/page/_error.js',
+    '_next/cdccc3cd8b6b07208822b5c9b6e594ec/app.js',
+    '_next/318de9dc-913c-403a-a59c-6989f0b60f0c/page/index.js',
+    '_next/318de9dc-913c-403a-a59c-6989f0b60f0c/page/nav.js',
+    '_next/318de9dc-913c-403a-a59c-6989f0b60f0c/page/post.js',
+    '_next/318de9dc-913c-403a-a59c-6989f0b60f0c/page/_error.js',
 
     'https://fonts.googleapis.com/css?family=Roboto:300,400,500',
     'https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2',
@@ -27,9 +27,9 @@ self.addEventListener('install', function(e) {
     caches.open(cacheName).then(function(cache) {
       console.log('[ServiceWorker] Caching app shell');
       if (false) {
-        filesToCache.push('_next/86fd7453-9364-4321-8999-84e0e09aea1f/manifest.js')
-        filesToCache.push('_next/86fd7453-9364-4321-8999-84e0e09aea1f/commons.js')
-        filesToCache.push('_next/86fd7453-9364-4321-8999-84e0e09aea1f/main.js')
+        filesToCache.push('_next/318de9dc-913c-403a-a59c-6989f0b60f0c/manifest.js')
+        filesToCache.push('_next/318de9dc-913c-403a-a59c-6989f0b60f0c/commons.js')
+        filesToCache.push('_next/318de9dc-913c-403a-a59c-6989f0b60f0c/main.js')
       }
       return cache.addAll(filesToCache);
     })

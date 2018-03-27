@@ -8,7 +8,7 @@ webpush.setVapidDetails(
     'mailto:lanzhiping6@gmail.com',
     // vapidKeys.publicKey,
     applicationServerPublicKey,
-    process.env.PKEY,
+    process.env.PKEY
 );
 
 // This is the same output of calling JSON.stringify on a PushSubscription
