@@ -11,9 +11,6 @@ const filesToCache = [
     '_next/BUILD_ID/page/nav.js',
     '_next/BUILD_ID/page/post.js',
     '_next/BUILD_ID/page/_error.js',
-    '_next/BUILD_ID/manifest.js',
-    '_next/BUILD_ID/commons.js',
-    '_next/BUILD_ID/main.js',
 
     'https://fonts.googleapis.com/css?family=Roboto:300,400,500',
     'https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2',
@@ -29,6 +26,11 @@ self.addEventListener('install', function(e) {
   e.waitUntil(
     caches.open(cacheName).then(function(cache) {
       console.log('[ServiceWorker] Caching app shell');
+      if (window.__NEXT_DATA__.buildId === '-') {
+        filesToCache.push('_next/BUILD_ID/manifest.js')
+        filesToCache.push('_next/BUILD_ID/commons.js')
+        filesToCache.push('_next/BUILD_ID/main.js')
+      }
       return cache.addAll(filesToCache);
     })
   );
