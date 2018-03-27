@@ -6,7 +6,7 @@ const filesToCache = [
     '/nav',
     '/_next/static/style.css',
 
-    '_next/BUILD_ID/page/app.js',
+    '_next/cdccc3cd8b6b07208822b5c9b6e594ec/app.js',
     '_next/BUILD_ID/page/index.js',
     '_next/BUILD_ID/page/nav.js',
     '_next/BUILD_ID/page/post.js',
