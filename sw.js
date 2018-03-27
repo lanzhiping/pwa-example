@@ -26,7 +26,7 @@ self.addEventListener('install', function(e) {
   e.waitUntil(
     caches.open(cacheName).then(function(cache) {
       console.log('[ServiceWorker] Caching app shell');
-      if (window.__NEXT_DATA__.buildId === '-') {
+      if ('isDev') {
         filesToCache.push('_next/BUILD_ID/manifest.js')
         filesToCache.push('_next/BUILD_ID/commons.js')
         filesToCache.push('_next/BUILD_ID/main.js')
