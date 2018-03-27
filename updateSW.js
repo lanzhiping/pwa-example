@@ -9,7 +9,9 @@ function updateSWWithId(id) {
             return console.log('failed to find SW in current directory', err);
         }
 
-        const result = data.replace(/BUILD_ID/g, id);
+        const result = data
+            .replace(/BUILD_ID/g, id)
+            .replace(/'isDev'/, process.env.NODE_ENV !== 'production' ? 'true' : 'false');
 
         fs.writeFile(swPath, result, 'utf8', (err) => {
             if (err) return console.log('failed to update SW file', err);
