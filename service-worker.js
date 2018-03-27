@@ -1,19 +1,19 @@
-const cacheName = 'PWA-d1cba8ef-fa63-46d7-8744-f2a7e970f3d3'
-const dataCacheName = 'Data-PWA-d1cba8ef-fa63-46d7-8744-f2a7e970f3d3'
+const cacheName = 'PWA-f02d14f3-326c-4d58-8a1c-dfd6fd697a0e'
+const dataCacheName = 'Data-PWA-f02d14f3-326c-4d58-8a1c-dfd6fd697a0e'
 const filesToCache = [
     '/',
     '/post',
     '/nav',
     '/_next/static/style.css',
 
-    '_next/d1cba8ef-fa63-46d7-8744-f2a7e970f3d3/page/app.js',
-    '_next/d1cba8ef-fa63-46d7-8744-f2a7e970f3d3/page/index.js',
-    '_next/d1cba8ef-fa63-46d7-8744-f2a7e970f3d3/page/nav.js',
-    '_next/d1cba8ef-fa63-46d7-8744-f2a7e970f3d3/page/post.js',
-    '_next/d1cba8ef-fa63-46d7-8744-f2a7e970f3d3/page/_error.js',
-    '_next/d1cba8ef-fa63-46d7-8744-f2a7e970f3d3/manifest.js',
-    '_next/d1cba8ef-fa63-46d7-8744-f2a7e970f3d3/commons.js',
-    '_next/d1cba8ef-fa63-46d7-8744-f2a7e970f3d3/main.js',
+    '_next/f02d14f3-326c-4d58-8a1c-dfd6fd697a0e/page/app.js',
+    '_next/f02d14f3-326c-4d58-8a1c-dfd6fd697a0e/page/index.js',
+    '_next/f02d14f3-326c-4d58-8a1c-dfd6fd697a0e/page/nav.js',
+    '_next/f02d14f3-326c-4d58-8a1c-dfd6fd697a0e/page/post.js',
+    '_next/f02d14f3-326c-4d58-8a1c-dfd6fd697a0e/page/_error.js',
+    '_next/f02d14f3-326c-4d58-8a1c-dfd6fd697a0e/manifest.js',
+    '_next/f02d14f3-326c-4d58-8a1c-dfd6fd697a0e/commons.js',
+    '_next/f02d14f3-326c-4d58-8a1c-dfd6fd697a0e/main.js',
 
     'https://fonts.googleapis.com/css?family=Roboto:300,400,500',
     'https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2',
