@@ -5,6 +5,7 @@ const ipv4 = require('./ip')
 const imageApi = require('./image')
 const addPost = require('./addPost')
 const getPosts = require('./getPosts')
+const { addSubscription } = require('./pushPostToClient')
 
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
@@ -20,6 +21,7 @@ app.prepare().then(() => {
         .use('/service-worker.js', express.static('service-worker.js'))
         .get('/image', imageApi)
         .post('/post', bodyParser.json(), addPost)
+        .post('/subscription', bodyParser.json(), addSubscription)
         .get('/posts', getPosts)
         .use('/', handle)
         .listen(3000, () => {

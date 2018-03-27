@@ -11,6 +11,9 @@ const filesToCache = [
     '_next/BUILD_ID/page/nav.js',
     '_next/BUILD_ID/page/post.js',
     '_next/BUILD_ID/page/_error.js',
+    '_next/BUILD_ID/manifest.js',
+    '_next/BUILD_ID/commons.js',
+    '_next/BUILD_ID/main.js',
 
     'https://fonts.googleapis.com/css?family=Roboto:300,400,500',
     'https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2',
@@ -83,4 +86,26 @@ self.addEventListener('fetch', function(event) {
             })
         );
     }
+});
+
+self.addEventListener('push', function(event) {
+    console.log('[Service Worker] Push Received.');
+    console.log(`[Service Worker] Push had this data: "${event.data.text()}"`);
+
+    const title = 'PWS';
+    const options = {
+      body: event.data.text(),
+    };
+
+    event.waitUntil(self.registration.showNotification(title, options));
+});
+
+self.addEventListener('notificationclick', function(event) {
+    console.log('[Service Worker] Notification click Received.');
+
+    event.notification.close();
+
+    event.waitUntil(
+        clients.openWindow('/')
+    );
 });

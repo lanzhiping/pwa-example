@@ -1,16 +1,19 @@
-const cacheName = 'PWA--'
-const dataCacheName = 'Data-PWA--'
+const cacheName = 'PWA-d1cba8ef-fa63-46d7-8744-f2a7e970f3d3'
+const dataCacheName = 'Data-PWA-d1cba8ef-fa63-46d7-8744-f2a7e970f3d3'
 const filesToCache = [
     '/',
     '/post',
     '/nav',
     '/_next/static/style.css',
 
-    '_next/-/page/app.js',
-    '_next/-/page/index.js',
-    '_next/-/page/nav.js',
-    '_next/-/page/post.js',
-    '_next/-/page/_error.js',
+    '_next/d1cba8ef-fa63-46d7-8744-f2a7e970f3d3/page/app.js',
+    '_next/d1cba8ef-fa63-46d7-8744-f2a7e970f3d3/page/index.js',
+    '_next/d1cba8ef-fa63-46d7-8744-f2a7e970f3d3/page/nav.js',
+    '_next/d1cba8ef-fa63-46d7-8744-f2a7e970f3d3/page/post.js',
+    '_next/d1cba8ef-fa63-46d7-8744-f2a7e970f3d3/page/_error.js',
+    '_next/d1cba8ef-fa63-46d7-8744-f2a7e970f3d3/manifest.js',
+    '_next/d1cba8ef-fa63-46d7-8744-f2a7e970f3d3/commons.js',
+    '_next/d1cba8ef-fa63-46d7-8744-f2a7e970f3d3/main.js',
 
     'https://fonts.googleapis.com/css?family=Roboto:300,400,500',
     'https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2',
@@ -83,4 +86,26 @@ self.addEventListener('fetch', function(event) {
             })
         );
     }
+});
+
+self.addEventListener('push', function(event) {
+    console.log('[Service Worker] Push Received.');
+    console.log(`[Service Worker] Push had this data: "${event.data.text()}"`);
+
+    const title = 'PWS';
+    const options = {
+      body: event.data.text(),
+    };
+
+    event.waitUntil(self.registration.showNotification(title, options));
+});
+
+self.addEventListener('notificationclick', function(event) {
+    console.log('[Service Worker] Notification click Received.');
+
+    event.notification.close();
+
+    event.waitUntil(
+        clients.openWindow('/')
+    );
 });

@@ -6,6 +6,7 @@ import Paper from 'material-ui/Paper'
 import TextField from 'material-ui/TextField'
 import FloatingActionButton from 'material-ui/FloatingActionButton'
 import IconButton from 'material-ui/IconButton'
+import CircularProgress from 'material-ui/CircularProgress';
 import fetch from 'isomorphic-unfetch'
 
 const style = {
@@ -52,6 +53,7 @@ class Post extends Component {
     }
 
     onRefresh = async () => {
+        this.setState({ picUrl: '' })
         const res = await fetch('/image')
         const image = await res.text()
         this.setState({ picUrl: image })
@@ -83,7 +85,11 @@ class Post extends Component {
                 /><br /><br />
                 <div style={{ textAlign: 'center' }}>
                     <Paper style={picPreviewStyle} zDepth={1} rounded={false} children={<img src={this.state.picUrl} style={imgPreviewStyle}/>} />
-                    <IconButton iconClassName="material-icons" tooltip="Try others" onClick={this.onRefresh}>refresh</IconButton>
+                    {
+                        this.state.picUrl
+                            ? <IconButton iconClassName="material-icons" tooltip="Try others" onClick={this.onRefresh}>refresh</IconButton>
+                            : <CircularProgress size={20} style={{ paddingTop: '15px' }}/>
+                    }
                 </div>
                 <div style={{ textAlign: 'right' }}>
                     <FloatingActionButton mini={true} onClick={this.addPost}>

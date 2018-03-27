@@ -6,6 +6,7 @@ import Drawer from 'material-ui/Drawer';
 import FontIcon from 'material-ui/FontIcon'
 import { white } from 'material-ui/styles/colors'
 import Nav from './Nav';
+import registerSW from './registerSW'
 
 const containerStyle = {
     width: '100%',
@@ -19,12 +20,7 @@ class App extends Component {
     }
 
     componentDidMount() {
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker
-                .register('/service-worker.js')
-                .then(function() { console.log('Service Worker Registered'); });
-        }
-
+        registerSW();
         this.setState({
             loading: false
         });
