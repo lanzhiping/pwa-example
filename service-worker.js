@@ -1,23 +1,23 @@
-const cacheName = 'PWA-5cd245e2-2709-4b46-ad5e-0fc3f0847128'
-const dataCacheName = 'Data-PWA-5cd245e2-2709-4b46-ad5e-0fc3f0847128'
+const cacheName = 'PWA-407dd6cb-60d2-4b7f-a211-456cd0acaca3'
+const dataCacheName = 'Data-PWA-407dd6cb-60d2-4b7f-a211-456cd0acaca3'
 const filesToCache = [
     '/',
     '/post',
     '/nav',
     '/_next/static/style.css',
 
-    '_next/5cd245e2-2709-4b46-ad5e-0fc3f0847128/page/app.js',
-    '_next/5cd245e2-2709-4b46-ad5e-0fc3f0847128/page/index.js',
-    '_next/5cd245e2-2709-4b46-ad5e-0fc3f0847128/page/nav.js',
-    '_next/5cd245e2-2709-4b46-ad5e-0fc3f0847128/page/post.js',
-    '_next/5cd245e2-2709-4b46-ad5e-0fc3f0847128/page/_error.js',
+    '_next/407dd6cb-60d2-4b7f-a211-456cd0acaca3/page/app.js',
+    '_next/407dd6cb-60d2-4b7f-a211-456cd0acaca3/page/index.js',
+    '_next/407dd6cb-60d2-4b7f-a211-456cd0acaca3/page/nav.js',
+    '_next/407dd6cb-60d2-4b7f-a211-456cd0acaca3/page/post.js',
+    '_next/407dd6cb-60d2-4b7f-a211-456cd0acaca3/page/_error.js',
 
     'https://fonts.googleapis.com/css?family=Roboto:300,400,500',
     'https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2',
     'https://fonts.gstatic.com/s/materialicons/v36/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2',
     'https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmEU9fBBc4AMP6lQ.woff2',
     'https://fonts.googleapis.com/icon?family=Material+Icons',
-    'http://tse4.mm.bing.net/th?id=OIP.A6zdfyorlBrvGAWFKeJ_bQHaEe&pid=Api',
+    'https://tse4.mm.bing.net/th?id=OIP.A6zdfyorlBrvGAWFKeJ_bQHaEe&pid=Api',
     '/pwa-lighthouse.png',
 ];
 
@@ -27,9 +27,9 @@ self.addEventListener('install', function(e) {
     caches.open(cacheName).then(function(cache) {
       console.log('[ServiceWorker] Caching app shell');
       if (false) {
-        filesToCache.push('_next/5cd245e2-2709-4b46-ad5e-0fc3f0847128/manifest.js')
-        filesToCache.push('_next/5cd245e2-2709-4b46-ad5e-0fc3f0847128/commons.js')
-        filesToCache.push('_next/5cd245e2-2709-4b46-ad5e-0fc3f0847128/main.js')
+        filesToCache.push('_next/407dd6cb-60d2-4b7f-a211-456cd0acaca3/manifest.js')
+        filesToCache.push('_next/407dd6cb-60d2-4b7f-a211-456cd0acaca3/commons.js')
+        filesToCache.push('_next/407dd6cb-60d2-4b7f-a211-456cd0acaca3/main.js')
       }
       return cache.addAll(filesToCache);
     })
