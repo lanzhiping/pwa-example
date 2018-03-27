@@ -402,7 +402,6 @@ var external__isomorphic_unfetch__default = /*#__PURE__*/__webpack_require__.n(e
 
 
 var applicationServerPublicKey = 'BOy_M1QNP4M2GWL4ez0fx9pUjP0iHOpKnc2Z199ISspmUMIq7EAqcwlc-Q2EYWbbvgFRm2CbN3Ffsd03f876z4U';
-var applicationPrivateKey = 'utvivNDmp3B8g5LAWqYHkgj7WmUSDOBIeDf8-VsGlKI';
 
 function createSubOnServer(sub) {
     var headers = { 'Content-Type': 'application/json' };

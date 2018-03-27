@@ -1,7 +1,6 @@
 import fetch from 'isomorphic-unfetch'
 
 const applicationServerPublicKey = 'BOy_M1QNP4M2GWL4ez0fx9pUjP0iHOpKnc2Z199ISspmUMIq7EAqcwlc-Q2EYWbbvgFRm2CbN3Ffsd03f876z4U'
-const applicationPrivateKey = 'utvivNDmp3B8g5LAWqYHkgj7WmUSDOBIeDf8-VsGlKI'
 
 function createSubOnServer(sub) {
     const headers = { 'Content-Type': 'application/json' }
