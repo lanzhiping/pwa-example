@@ -1,24 +1,12 @@
 const webpush = require('web-push');
-// VAPID keys should only be generated only once.
-// const vapidKeys = webpush.generateVAPIDKeys();
 const applicationServerPublicKey = 'BOy_M1QNP4M2GWL4ez0fx9pUjP0iHOpKnc2Z199ISspmUMIq7EAqcwlc-Q2EYWbbvgFRm2CbN3Ffsd03f876z4U'
 
 webpush.setGCMAPIKey(process.env.GKEY);
 webpush.setVapidDetails(
     'mailto:lanzhiping6@gmail.com',
-    // vapidKeys.publicKey,
     applicationServerPublicKey,
     process.env.PKEY
 );
-
-// This is the same output of calling JSON.stringify on a PushSubscription
-// const pushSubscription = {
-//   endpoint: '.....',
-//   keys: {
-//     auth: '.....',
-//     p256dh: '.....'
-//   }
-// };
 
 const subscriptions = []
 
